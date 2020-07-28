@@ -1,3 +1,4 @@
 {
-    "mongoURI": "mongodb+srv://urinrin:thePass2020@devconnector.pwi0s.mongodb.net/DevConnector?retryWrites=true&w=majority"
+    "mongoURI": "mongodb+srv://urinrin:thePass2020@devconnector.pwi0s.mongodb.net/DevConnector?retryWrites=true&w=majority",
+    "jwtSecret": "secretToken"
 }

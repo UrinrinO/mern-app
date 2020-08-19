@@ -1,4 +1,6 @@
 {
     "mongoURI": "mongodb+srv://urinrin:thePass2020@devconnector.pwi0s.mongodb.net/DevConnector?retryWrites=true&w=majority",
-    "jwtSecret": "secretToken"
+    "jwtSecret": "secretToken",
+    "githubClientId": "a2e40b6397c969d986ed",
+    "githubSecret": "72e109bccd7b7c242c2d31c6c218fc125850b1ee"
 }

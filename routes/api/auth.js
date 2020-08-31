@@ -33,7 +33,7 @@ router.post(
         // email must be a valid email
         body('email', 'Kindly enter a valid email address').isEmail(),
         // password must be at least 6 chars long
-        body('password', 'Password is required').exists()
+        body('password', 'Please enter a password of 6 or more characters').exists().isLength({ min: 5 })
     ],
     async (req, res) => {
         // Finds the validation errors in this request and wraps them in an object with handy functions
@@ -63,7 +63,7 @@ router.post(
                 });
             }
 
-            const isMatch = bcrypt.compare(password, user.password);
+            const isMatch = await bcrypt.compare(password, user.password);
 
             if (!isMatch) {
                 return res.status(400).json({
@@ -73,11 +73,6 @@ router.post(
                 });
             }
 
-            // if (!await bcrypt.compare(password, user.password)) {
-            //     return res.send({
-            //         msg: 'Invalid credentials.'
-            //     })
-            // }
 
             // Return Jsonwebtoken
             const payload = {
@@ -89,8 +84,8 @@ router.post(
             jwt.sign(
                 payload,
                 config.get('jwtSecret'), {
-                    expiresIn: 3600
-                },
+                expiresIn: 10800
+            },
                 (err, token) => {
                     if (err) {
                         throw err;

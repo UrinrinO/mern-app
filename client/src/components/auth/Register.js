@@ -37,13 +37,13 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             <p className="lead"><i className="fas fa-user"></i> Create Your Account</p>
             <form className="form" onSubmit={e => onSubmit(e)}>
                 <div className="form-group">
-                    <input 
-                        type="text" 
-                        placeholder="Name" 
-                        name="name" 
-                        value={name} 
-                        onChange={e => onChange(e)} 
-                         
+                    <input
+                        type="text"
+                        placeholder="Name"
+                        name="name"
+                        value={name}
+                        onChange={e => onChange(e)}
+
                     />
                 </div>
                 <div className="form-group">
@@ -52,7 +52,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
                         placeholder="Email Address"
                         name="email" value={email}
                         onChange={e => onChange(e)}
-                        
+
                     />
                     <small className="form-text">This site uses Gravatar so if you want a profile image, use a Gravatar email</small>
                 </div>
@@ -93,4 +93,5 @@ Register.propTypes = {
 const mapStateToProps = state => ({
     isAuthenticated: state.auth.isAuthenticated
 });
+
 export default connect(mapStateToProps, { setAlert, register })(Register);
